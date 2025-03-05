@@ -1,0 +1,15 @@
+https://www2.hm.com/es_es/hombre/compra-por-producto/view-all.html
+
+response.css("article.hm-product-item")
+article.css("a.link::text").get()   -> esto es para el nombre
+
+https://www2.hm.com
+/es_es/productpage.0970819001.html
+
+
+ for product in response.css("article.hm-product-item"):
+            yield {
+                'name': product.css("a.link::text").get(),
+                'price': product.css("span.price.regular::text").get(),
+                'link': response.urljoin(product.css("a.link::attr(href)").get()),
+            }
